@@ -8,8 +8,8 @@ class QuestionSchema(ma.ModelSchema):
         model = Question
         fields = ('id', 'question', 'answer', 'asked_by_id', 'expert_id')
 
-    expert = ma.Nested(UserSchema)
-    asked_by = ma.Nested(UserSchema)
+    # expert = ma.Nested(UserSchema)
+    # asked_by = ma.Nested(UserSchema)
     # Smart hyperlinking
     _links = ma.Hyperlinks(
         {"self": ma.URLFor("question_detail", id="<id>"), "collection": ma.URLFor("questions")}

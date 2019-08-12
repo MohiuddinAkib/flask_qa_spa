@@ -10,12 +10,12 @@ autopep8 = "*"
 flask = "*"
 flask-sqlalchemy = "*"
 flask-marshmallow = "*"
-pyjwt = "*"
 flask-migrate = "*"
 psycopg2 = "*"
 psycopg2-binary = "*"
 python-dotenv = "*"
 marshmallow-sqlalchemy = "*"
+flask-jwt-extended = "*"
 
 [requires]
 python_version = "3.6"
