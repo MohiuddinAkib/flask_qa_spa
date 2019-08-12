@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "164a57cbc9432d2633b566f1ed57f8d39b8efd721dc25a873cbfe0df80021d98"
+            "sha256": "99b72584baf08a5b11bd3ab8dac9c250b5455a19595c5a35ee26e74e05e0ea2a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -120,6 +120,14 @@
                 "sha256:ebeb2b3b41580ed89fe1e695b567bd8509a62ecb85fe89e33a8d7fa486badd41"
             ],
             "version": "==2.20.0"
+        },
+        "marshmallow-sqlalchemy": {
+            "hashes": [
+                "sha256:d662fc8103a06b59aafbc33c8ab4f1318799d66aae4f660c1e7e278bc45ef69e",
+                "sha256:f69e740ea8d3b678fd712263e5dd739c94482cd8840e2f6cf4314919e6547cee"
+            ],
+            "index": "pypi",
+            "version": "==0.17.0"
         },
         "psycopg2": {
             "hashes": [

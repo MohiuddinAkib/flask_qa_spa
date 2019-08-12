@@ -1,5 +1,4 @@
-from .extensions import db
-
+from flask_rest_api.extensions import db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -19,11 +18,3 @@ class User(db.Model):
         backref='expert',
         lazy=True
     )
-
-
-class Question(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    question = db.Column(db.Text)
-    answer = db.Column(db.Text)
-    asked_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    expert_id = db.Column(db.Integer, db.ForeignKey('user.id'))

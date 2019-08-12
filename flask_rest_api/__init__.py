@@ -1,5 +1,8 @@
 from flask import Flask
+from .routes import main
 from .extensions import db, ma, migrate
+from flask_rest_api.user.routes import user
+from flask_rest_api.question.routes import question
 
 
 def create_app(config_file='settings.py'):
@@ -13,8 +16,13 @@ def create_app(config_file='settings.py'):
     db.init_app(app)
     # Init migrate
     migrate.init_app(app, db)
+    # register blueprints
+    app.register_blueprint(main, url_prefix='/api')
+    app.register_blueprint(user, url_prefix='/api/users')
+    app.register_blueprint(question, url_prefix='/api/questions')
     # return app
     return app
+
 
 if __name__ == '__main__':
     create_app()
