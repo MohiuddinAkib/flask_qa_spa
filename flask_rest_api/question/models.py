@@ -7,3 +7,6 @@ class Question(db.Model):
     answer = db.Column(db.Text)
     asked_by_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     expert_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __str__(self):
+        return self.question

@@ -1,5 +1,5 @@
 from flask_rest_api.extensions import db
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 from flask_rest_api.question.models import Question
 
 
@@ -21,6 +21,12 @@ class User(db.Model):
         backref='expert',
         lazy=True
     )
+
+    def __str__(self):
+        return self.name
+
+    def verify_password(self, password):
+        return check_password_hash(self.password, password)
 
     @property
     def unhashed_password(self):

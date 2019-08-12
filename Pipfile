@@ -16,6 +16,7 @@ psycopg2-binary = "*"
 python-dotenv = "*"
 marshmallow-sqlalchemy = "*"
 flask-jwt-extended = "*"
+flask-admin = "*"
 
 [requires]
 python_version = "3.6"

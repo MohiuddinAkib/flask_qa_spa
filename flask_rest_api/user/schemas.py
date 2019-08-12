@@ -1,17 +1,17 @@
 from .models import User
 from flask_rest_api.extensions import ma
+from flask_rest_api.question.schemas import QuestionSchema
 
 
 class UserSchema(ma.ModelSchema):
     class Meta:
         model = User
-        fields = ('id', 'name', 'expert', 'admin', 'questions_asked', 'answers_requested')
-
-    # questions_asked = ma.HyperlinkRelated('questions_asked')
-    # answers_requested = ma.HyperlinkRelated('answers_requested')
+        exclude = ('password', )
+    questions_asked = ma.List(ma.Nested(QuestionSchema, only=['question', 'answer']))
+    answers_requested = ma.List(ma.Nested('UserSchema', only=['question']))
     # Smart hyperlinking
-    _links = ma.Hyperlinks(
-        {"self": ma.URLFor("user_detail", id="<id>"), "collection": ma.URLFor("users")}
+    links = ma.Hyperlinks(
+        {"self": ma.URLFor("user.user_details", id="<id>"), "collection": ma.URLFor("user.users")}
     )
 
 
