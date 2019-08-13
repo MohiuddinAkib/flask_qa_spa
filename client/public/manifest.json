@@ -1,6 +1,6 @@
 {
-  "name": "client",
-  "short_name": "client",
+  "name": "Flask QA",
+  "short_name": "Flsk QA",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",

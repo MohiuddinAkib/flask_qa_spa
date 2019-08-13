@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, render_template, abort
+from jinja2 import TemplateNotFound
 from .user.models import User
 from .routes.main import main
 from .routes.auth import auth
@@ -35,6 +36,13 @@ def create_app(config_file='settings.py'):
     # Admin views
     admin.add_view(UserVIew(User, db.session, endpoint='users_'))
     admin.add_view(ModelView(Question, db.session, endpoint='question_'))
+    @app.route('/', defaults={'path': ''})
+    @app.route('/<path:path>')
+    def client(path):
+        try:
+            return render_template('index.html')
+        except TemplateNotFound:
+            abort(404)
     # return app
     return app
 
