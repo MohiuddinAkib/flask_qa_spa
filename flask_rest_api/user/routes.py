@@ -16,6 +16,7 @@ def users():
 
 
 @user.route('/experts', methods=['GET'])
+@jwt_required
 def experts():
     experts = User.query.filter_by(expert=True).all()
     return users_schema.jsonify(experts), 200
