@@ -28,10 +28,10 @@ def create_app(config_file='settings.py'):
     # Init cors
     cors.init_app(app)
     # register blueprints
-    app.register_blueprint(main, url_prefix='/api')
     app.register_blueprint(auth, url_prefix='/api/auth')
     app.register_blueprint(user, url_prefix='/api/users')
     app.register_blueprint(question, url_prefix='/api/questions')
+    app.register_blueprint(main, url_prefix='/')
     # Admin views
     admin.add_view(UserVIew(User, db.session, endpoint='users_'))
     admin.add_view(ModelView(Question, db.session, endpoint='question_'))
